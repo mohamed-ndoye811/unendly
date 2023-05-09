@@ -32,8 +32,14 @@ main#study {
   }
 
   .level-annoucement-transition {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
     span {
       position: relative;
+      font-size: 16px;
     }
   }
 }

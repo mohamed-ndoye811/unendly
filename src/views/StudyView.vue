@@ -128,7 +128,7 @@ onMounted(() => {
 <template>
     <main id="study">
         <div class="container">
-            <div class="level-annoucement-transition" v-if="!dailyStudiesComplete">
+            <div class="level-annoucement-transition" v-if="!dailyStudiesComplete ">
                 <span>level {{ levelsOfTheDay[levelToStudyIndex] }}</span>
             </div>
             <div class="card-deck" v-if="cards.length && !dailyStudiesComplete">

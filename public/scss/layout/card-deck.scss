@@ -4,12 +4,28 @@
   row-gap: 0;
   position: relative;
 
+
   .card {
     margin-top: -50.5%;
     transition: all 1.2s ease;
+    opacity: 0;
+    scale: 0.85;
 
     &:nth-last-child(-n + 3) {
       margin-top: -50%;
+      opacity: 1;
+    }
+
+    &:nth-last-child(1) {
+      scale: 1;
+    }
+
+    &:nth-last-child(2) {
+      scale: 0.95;
+    }
+
+    &:nth-last-child(3) {
+      scale: 0.90;
     }
 
     &.hide {
@@ -19,4 +35,6 @@
       margin-top: -60%;
     }
   }
+
+
 }

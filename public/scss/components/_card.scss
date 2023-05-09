@@ -95,6 +95,12 @@
         transform: rotate(-90deg);
         word-spacing: -24px;
 
+        @media screen and (max-width: 414px) {
+          font-size: 56px;
+          line-height: 156px;
+          translate: -100% -52%;
+        }
+
         span {
           margin-bottom: -90px;
           opacity: 0.5;
@@ -121,6 +127,10 @@
     transition: transform 0.8s;
     transform-style: preserve-3d;
     transform-origin: center;
+
+    @media screen and (max-width: 414px) {
+      width: 90vw;
+    }
 
     &.revealed {
       transform: rotateY(180deg);
