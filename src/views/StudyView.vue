@@ -14,7 +14,7 @@ import gsap from 'gsap';
 const studyStore = useStudyStore();
 const settingsStore = useSettingsStore();
 
-const {allCards, dailyStudiesComplete} = storeToRefs(studyStore);
+const {allCards, dailyStudiesComplete, lastStudiedDate} = storeToRefs(studyStore);
 const {studyHour} = storeToRefs(settingsStore);
 
 const cardsRef = ref([] as Card[]);
@@ -43,6 +43,7 @@ function handleResultButtonClick(card: Card, remembered: Boolean) {
             cards.value = studyStore.getStudyCards(levelsOfTheDay[levelToStudyIndex.value]);
         } else if (cards.value.length == 0 && levelToStudyIndex.value >= levelsOfTheDay.length - 1) {
             dailyStudiesComplete.value = true;
+            lastStudiedDate.value = moment().format('DD/MM/YYYY')
             studyStore.resetStudyCardsState();
         }
     })

@@ -8,6 +8,7 @@ export const useStudyStore = defineStore('studies', {
     state: () => ({
         dailyCardsAdded: false,
         dailyStudiesComplete: false,
+        lastStudiedDate: "" as string,
         cardsToStudy: [] as Card[],
         allCards: [] as Card[],
     }),
