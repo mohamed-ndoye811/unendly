@@ -1,0 +1,6 @@
+@use "colors" as *;
+
+:export {
+  primary: $clr-primary;
+  secondary: $clr-secondary;
+}

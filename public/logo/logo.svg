@@ -1,0 +1,20 @@
+<svg id="logo" data-name="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1977 1142.26">
+    <defs>
+        <linearGradient id="logo-gradient" x1="50%" y1="0%" x2="50%" y2="100%">
+
+            <stop offset="0%" stop-color="#E49273">
+                <animate attributeName="stop-color" values="#E49273; #726DA8; #E49273" dur="4s"
+                         repeatCount="indefinite" />
+            </stop>
+
+            <stop offset="100%" stop-color="#726DA8">
+                <animate attributeName="stop-color" values="#726DA8; #E49273; #726DA8" dur="4s"
+                         repeatCount="indefinite" />
+            </stop>
+
+        </linearGradient>
+    </defs>
+    <path class="cls-1"
+          fill="url('#logo-gradient')"
+          d="m1977,358.73v783.53h-326.88V422.92c0-88.74-51.19-134.05-230.38-134.05-255.99,0-267.8,83.07-267.8,215.23l-.44,638.16h-326.93v-133.1c-63.01,83.07-131.44,133.1-371.67,133.1C228.42,1142.26,0,1106.39,0,783.54V0h326.87v719.34c0,88.74,51.2,135.94,230.39,135.94,232.22,0,263.5-69.91,267.31-181.55.39-11.43.49-23.3.49-35.57L824.57,0h327.37l-.44,128.35C1214.77,45.03,1285.86.08,1524.1,0c224.48,0,452.9,37.76,452.9,358.73Z"/>
+</svg>

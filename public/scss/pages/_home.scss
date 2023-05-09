@@ -1,0 +1,20 @@
+@use "../abstracts" as *;
+
+main#home {
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    row-gap: 32px;
+
+    .buttons {
+        display: flex;
+        column-gap: 16px;
+    }
+
+    #logo {
+        width: 56px;
+        stroke: #fff;
+        stroke-width: 8px;
+        stroke-opacity: 50%;
+    }
+}

@@ -1,0 +1,64 @@
+@use '../abstracts/' as *;
+
+.button {
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 2;
+  width: max-content;
+  text-align: center;
+  align-self: center;
+  font-weight: 700;
+  transition: box-shadow 0.8s ease;
+  padding: 4px 16px;
+  color: $clr-secondary;
+  user-select: none;
+  font-size: 14px;
+
+  &::after {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    left: 0;
+    top: 0;
+    scale: 1.1;
+    filter: blur(20px);
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 0.4;
+    }
+  }
+
+  &--alt-1 {
+    background-color: $clr-purple;
+  }
+
+  &--alt-2 {
+    background-color: $clr-orange;
+  }
+
+  &--success {
+    background-color: $clr-success;
+    color: $clr-primary;
+  }
+
+  &--failure {
+    background-color: $clr-failure;
+    color: $clr-primary;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: 0.3;
+  }
+}

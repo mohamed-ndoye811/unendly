@@ -1,0 +1,22 @@
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  position: relative;
+
+  .card {
+    margin-top: -50.5%;
+    transition: all 1.2s ease;
+
+    &:nth-last-child(-n + 3) {
+      margin-top: -50%;
+    }
+
+    &.hide {
+      transform: translateY(50px);
+      opacity: 0;
+      pointer-events: none;
+      margin-top: -60%;
+    }
+  }
+}

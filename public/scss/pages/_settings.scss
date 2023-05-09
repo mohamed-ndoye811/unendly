@@ -1,0 +1,110 @@
+@use '../abstracts' as *;
+
+
+$error-color: #c51c1f;
+$error-text-color: #d5373a;
+
+main#settings {
+  display: grid;
+  flex-direction: column;
+  row-gap: 64px;
+  place-content: center;
+  justify-items: center;
+
+  .question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    font-weight: 800;
+
+    &__text {
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    &__input {
+      width: 100%;
+      position: relative;
+
+      input {
+        all: unset;
+        text-align: center;
+        color: $clr-orange;
+        width: 100%;
+        background: transparent;
+        position: relative;
+        -moz-appearance: textfield;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &::placeholder, &::after, &::before {
+          color: inherit;
+        }
+
+        &::placeholder {
+          opacity: 0.4;
+          text-transform: uppercase;
+        }
+
+      }
+
+      &::after {
+        filter: blur(15px);
+        display: block;
+        background-color: $clr-orange;
+        content: '';
+        width: 24px;
+        height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+
+      &::before {
+        content: attr(error-message);
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: 400;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        color: $error-text-color;
+        width: 100%;
+        text-align: center;
+      }
+
+      &.input-filled {
+        &::after {
+          opacity: 0.4;
+        }
+      }
+
+      &.input--invalid {
+
+        &::after {
+          background-color: $error-color;
+          opacity: 0.6;
+        }
+
+        input {
+          color: $error-text-color;
+        }
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+
+}

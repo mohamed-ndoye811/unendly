@@ -1,0 +1,11 @@
+@mixin size-fit-parent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin screen-max($max) {
+  @media (max-width: $max - 1) {
+    @content;
+  }
+}

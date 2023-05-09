@@ -1,0 +1,24 @@
+{
+  "files": ["types/*.d.ts"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ],
+  "include": ["**/*.d.ts"],
+  "compilerOptions": {
+    "paths": {
+//      "*": ["**/*.d.ts"],
+    },
+    "types": [
+      "vite-plugin-pwa/client"
+    ],
+    "lib": ["ES2022", "DOM"]
+  }
+}

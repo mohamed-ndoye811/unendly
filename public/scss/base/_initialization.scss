@@ -1,0 +1,63 @@
+@use "../abstracts/" as *;
+
+* {
+  font-family: 'Shin Go', sans-serif;
+}
+
+html,
+body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background-color: $clr-secondary;
+  color: $clr-primary;
+
+  @include screen-max($desktop) {
+    font-size: 12px;
+  }
+
+  @include screen-max($tablet) {
+    font-size: 6px;
+  }
+
+  .background {
+    position: fixed;
+    background: url("./background.jpg") no-repeat;
+    background-size: cover;
+    inset: 0;
+    top: 0;
+    right: 0;
+    z-index: 0;
+  }
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

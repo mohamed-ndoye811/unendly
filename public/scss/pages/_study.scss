@@ -1,0 +1,39 @@
+main#study {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  justify-content: center;
+
+  .buttons {
+    display: flex;
+    column-gap: 16px;
+    position: absolute;
+    top: 65%;
+    translate: -50% -50%;
+  }
+
+  .card-deck {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  .studies-finished {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    > span {
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+  }
+
+  .level-annoucement-transition {
+    span {
+      position: relative;
+    }
+  }
+}

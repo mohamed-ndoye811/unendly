@@ -1,0 +1,16 @@
+{
+  "name": "Unendly",
+  "short_name": "unendly",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#726DA8",
+  "background_color": "#0D1317",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "./assets/logo/icon.svg",
+      "sizes": "148x148",
+      "type": "image/svg+xml"
+    }
+  ]
+}
