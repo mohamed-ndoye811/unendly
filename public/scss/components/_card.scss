@@ -45,9 +45,13 @@
         font-size: 12px;
       }
 
-      .text {
+      .text, .text:autofill {
+        all: unset;
+        background-color: transparent !important;
+        appearance: textfield !important;
         font-weight: 800;
         font-size: 18px;
+        text-align: center;
       }
     }
 
@@ -55,18 +59,32 @@
       .categ-theme {
         position: absolute;
         top: 14px;
-        right: 12px;
+        right: 14px;
         z-index: 3;
         font-size: 10px;
         line-height: 20px;
         font-weight: 505;
         display: flex;
         column-gap: 4px;
+        justify-content: center;
+
+        &--edit {
+          left: 50%;
+          transform: translateX(-50%);
+          justify-content: center;
+        }
 
         .categ,
         .theme {
-          padding-inline: 8px;
+          all: unset;
           border-radius: 4px;
+          padding: 0;
+          width: 100%;
+          padding-inline: 8px;
+
+          &--edit {
+            padding: 0;
+          }
         }
 
         .categ {

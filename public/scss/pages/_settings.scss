@@ -18,9 +18,18 @@ main#settings {
     max-width: 500px;
     font-weight: 800;
 
+    @media screen and (max-width: 414px) {
+      max-width: 85vw;
+    }
+
     &__text {
       text-transform: uppercase;
       text-align: center;
+      width: 80vw;
+
+      @media screen and (max-width: 414px) {
+       font-size: 12px;
+      }
     }
 
     &__input {
@@ -36,6 +45,10 @@ main#settings {
         position: relative;
         -moz-appearance: textfield;
 
+        @media screen and (max-width: 414px) {
+          font-size: 14px;
+        }
+
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
           -webkit-appearance: none;
@@ -44,6 +57,9 @@ main#settings {
 
         &::placeholder, &::after, &::before {
           color: inherit;
+          @media screen and (max-width: 414px) {
+            font-size: 12px;
+          }
         }
 
         &::placeholder {
@@ -66,6 +82,7 @@ main#settings {
         transform: translate(-50%, -50%);
         opacity: 0;
         transition: opacity 0.4s ease;
+        pointer-events: none;
       }
 
       &::before {
@@ -80,6 +97,9 @@ main#settings {
         color: $error-text-color;
         width: 100%;
         text-align: center;
+        @media screen and (max-width: 414px) {
+          font-size: 12px;
+        }
       }
 
       &.input-filled {

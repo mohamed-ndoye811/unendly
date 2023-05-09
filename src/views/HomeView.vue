@@ -66,7 +66,7 @@ export default {
         <div class="buttons">
             <AppButton text="settings" link="/settings" type="alt-2"></AppButton>
             <AppButton text="Start study" link="/daily-new-cards"></AppButton>
-            <AppButton text="Enable notifications" @click="askPermission"></AppButton>
+            <AppButton text="Enable notifications" @click="askPermission" :disabled="notificationsSupported"></AppButton>
         </div>
     </main>
 </template>

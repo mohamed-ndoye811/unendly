@@ -1,0 +1,934 @@
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Bold.woff2") format("woff2"), url("../../fonts/ShinGoPro-Bold.woff") format("woff"), url("../../fonts/ShinGoPro-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go ";
+  src: url("../../fonts/ShinGoPro-ExLight.woff2") format("woff2"), url("../../fonts/ShinGoPro-ExLight.woff") format("woff"), url("../../fonts/ShinGoPro-ExLight.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go ";
+  src: url("../../fonts/ShinGoPro-DeBold.woff2") format("woff2"), url("../../fonts/ShinGoPro-DeBold.woff") format("woff"), url("../../fonts/ShinGoPro-DeBold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Heavy.woff2") format("woff2"), url("../../fonts/ShinGoPro-Heavy.woff") format("woff"), url("../../fonts/ShinGoPro-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Light.woff2") format("woff2"), url("../../fonts/ShinGoPro-Light.woff") format("woff"), url("../../fonts/ShinGoPro-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Medium.woff2") format("woff2"), url("../../fonts/ShinGoPro-Medium.woff") format("woff"), url("../../fonts/ShinGoPro-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Regular.woff2") format("woff2"), url("../../fonts/ShinGoPro-Regular.woff") format("woff"), url("../../fonts/ShinGoPro-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Shin Go";
+  src: url("../../fonts/ShinGoPro-Ultra.woff2") format("woff2"), url("../../fonts/ShinGoPro-Ultra.woff") format("woff"), url("../../fonts/ShinGoPro-Ultra.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+/* @docs
+label: Core Remedies
+version: 0.1.0-beta.2
+
+note: |
+  These remedies are recommended
+  as a starter for any project.
+
+category: file
+*/
+/* @docs
+label: Box Sizing
+
+note: |
+  Use border-box by default, globally.
+
+category: global
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* @docs
+label: Line Sizing
+
+note: |
+  Consistent line-spacing,
+  even when inline elements have different line-heights.
+
+links:
+  - https://drafts.csswg.org/css-inline-3/#line-sizing-property
+
+category: global
+*/
+html {
+  line-height: normal;
+}
+
+/* @docs
+label: Body Margins
+
+note: |
+  Remove the tiny space around the edge of the page.
+
+category: global
+*/
+body {
+  margin: 0;
+}
+
+/* @docs
+label: Hidden Attribute
+
+note: |
+  Maintain `hidden` behaviour when overriding `display` values.
+
+  category: global
+*/
+[hidden] {
+  display: none;
+}
+
+/* @docs
+label: Heading Sizes
+
+note: |
+  Switch to rem units for headings
+
+category: typography
+*/
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.17rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+h5 {
+  font-size: 0.83rem;
+}
+
+h6 {
+  font-size: 0.67rem;
+}
+
+/* @docs
+label: H1 Margins
+
+note: |
+  Keep h1 margins consistent, even when nested.
+
+category: typography
+*/
+h1 {
+  margin: 0.67em 0;
+}
+
+/* @docs
+label: Pre Wrapping
+
+note: |
+  Overflow by default is bad...
+
+category: typography
+*/
+pre {
+  white-space: pre-wrap;
+}
+
+/* @docs
+label: Horizontal Rule
+
+note: |
+  1. Solid, thin horizontal rules
+  2. Remove Firefox `color: gray`
+  3. Remove default `1px` height, and common `overflow: hidden`
+
+category: typography
+*/
+hr {
+  border-style: solid;
+  border-width: 1px 0 0;
+  color: inherit;
+  height: 0;
+  overflow: visible;
+}
+
+/* @docs
+label: Responsive Embeds
+
+note: |
+  1. Block display is usually what we want
+  2. The `vertical-align` removes strange space-below in case authors overwrite the display value
+  3. Responsive by default
+  4. Audio without `[controls]` remains hidden by default
+
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  max-width: 100%;
+}
+
+audio:not([controls]) {
+  display: none;
+}
+
+/* @docs
+label: Responsive Images
+
+note: |
+  These new elements display inline by default,
+  but that's not the expected behavior for either one.
+  This can interfere with proper layout and aspect-ratio handling.
+
+  1. Remove the unnecessary wrapping `picture`, while maintaining contents
+  2. Source elements have nothing to display, so we hide them entirely
+
+category: embedded elements
+*/
+picture {
+  display: contents;
+}
+
+source {
+  display: none;
+}
+
+/* @docs
+label: Aspect Ratios
+
+note: |
+  Maintain intrinsic aspect ratios when `max-width` is applied.
+  `iframe`, `embed`, and `object` are also embedded,
+  but have no intrinsic ratio,
+  so their `height` needs to be set explicitly.
+
+category: embedded elements
+*/
+img,
+svg,
+video,
+canvas {
+  height: auto;
+}
+
+/* @docs
+label: Audio Width
+
+note: |
+  There is no good reason elements default to 300px,
+  and audio files are unlikely to come with a width attribute.
+
+category: embedded elements
+*/
+audio {
+  width: 100%;
+}
+
+/* @docs
+label: Image Borders
+
+note: |
+  Remove the border on images inside links in IE 10 and earlier.
+
+category: legacy browsers
+*/
+img {
+  border-style: none;
+}
+
+/* @docs
+label: SVG Overflow
+
+note: |
+  Hide the overflow in IE 10 and earlier.
+
+category: legacy browsers
+*/
+svg {
+  overflow: hidden;
+}
+
+/* @docs
+label: HTML5 Elements
+
+note: |
+  Default block display on HTML5 elements.
+  For oldIE to apply this styling one needs to add some JS as well (i.e. `document.createElement("main")`)
+
+links:
+  - https://www.sitepoint.com/html5-older-browsers-and-the-shiv/
+
+category: legacy browsers
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+
+/* @docs
+label: Checkbox & Radio Inputs
+
+note: |
+  1. Add the correct box sizing in IE 10
+  2. Remove the padding in IE 10
+
+category: legacy browsers
+*/
+[type=checkbox],
+[type=radio] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+* {
+  font-family: "Shin Go", sans-serif;
+}
+
+html,
+body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background-color: #0D1317;
+  color: #EFF2EF;
+}
+@media (max-width: 1365px) {
+  html,
+  body, #app {
+    font-size: 12px;
+  }
+}
+@media (max-width: 767px) {
+  html,
+  body, #app {
+    font-size: 6px;
+  }
+}
+html .background,
+body .background, #app .background {
+  position: fixed;
+  background: url("../background.jpg") no-repeat;
+  background-size: cover;
+  inset: 0;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  width: max-content;
+  perspective: 1000px;
+}
+.card .front,
+.card .back {
+  top: 0;
+  left: 0;
+  transform-origin: center;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: grid;
+  place-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.card .front::after,
+.card .back::after {
+  background: rgba(13, 19, 23, 0.15);
+  display: block;
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+  z-index: 0;
+  /* scale: 1.1; */
+  border: solid 1px rgba(239, 242, 239, 0.3);
+}
+.card .front .question,
+.card .front .answer,
+.card .back .question,
+.card .back .answer {
+  z-index: 2;
+}
+.card .front .question .label,
+.card .front .answer .label,
+.card .back .question .label,
+.card .back .answer .label {
+  font-weight: 300;
+  font-size: 12px;
+}
+.card .front .question .text, .card .front .question .text:autofill,
+.card .front .answer .text,
+.card .front .answer .text:autofill,
+.card .back .question .text,
+.card .back .question .text:autofill,
+.card .back .answer .text,
+.card .back .answer .text:autofill {
+  all: unset;
+  background-color: transparent !important;
+  appearance: textfield !important;
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+}
+.card .front .styles .categ-theme,
+.card .back .styles .categ-theme {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  font-size: 10px;
+  line-height: 20px;
+  font-weight: 505;
+  display: flex;
+  column-gap: 4px;
+  justify-content: center;
+}
+.card .front .styles .categ-theme--edit,
+.card .back .styles .categ-theme--edit {
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+}
+.card .front .styles .categ-theme .categ,
+.card .front .styles .categ-theme .theme,
+.card .back .styles .categ-theme .categ,
+.card .back .styles .categ-theme .theme {
+  all: unset;
+  border-radius: 4px;
+  padding: 0;
+  width: 100%;
+  padding-inline: 8px;
+}
+.card .front .styles .categ-theme .categ--edit,
+.card .front .styles .categ-theme .theme--edit,
+.card .back .styles .categ-theme .categ--edit,
+.card .back .styles .categ-theme .theme--edit {
+  padding: 0;
+}
+.card .front .styles .categ-theme .categ,
+.card .back .styles .categ-theme .categ {
+  background-color: #EFF2EF;
+  color: #0D1317;
+}
+.card .front .styles .categ-theme .theme,
+.card .back .styles .categ-theme .theme {
+  background-color: #0D1317;
+  color: #EFF2EF;
+}
+.card .front .styles .lvl,
+.card .back .styles .lvl {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  translate: -95% -52%;
+  z-index: 1;
+  top: 50%;
+  pointer-events: none;
+  font-weight: 800;
+  font-size: 96px;
+  line-height: 192px;
+  opacity: 0.4;
+  transform: rotate(-90deg);
+  word-spacing: -24px;
+}
+@media screen and (max-width: 414px) {
+  .card .front .styles .lvl,
+  .card .back .styles .lvl {
+    font-size: 56px;
+    line-height: 156px;
+    translate: -100% -52%;
+  }
+}
+.card .front .styles .lvl span,
+.card .back .styles .lvl span {
+  margin-bottom: -90px;
+  opacity: 0.5;
+}
+.card .front .styles .lvl span:nth-child(2),
+.card .back .styles .lvl span:nth-child(2) {
+  filter: blur(2px);
+  opacity: 0.2;
+}
+.card .front .styles .lvl span:nth-child(3),
+.card .back .styles .lvl span:nth-child(3) {
+  filter: blur(5px);
+  opacity: 0.1;
+}
+.card-inner {
+  position: relative;
+  width: 569px;
+  aspect-ratio: 1.89;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  transform-origin: center;
+}
+@media screen and (max-width: 414px) {
+  .card-inner {
+    width: 90vw;
+  }
+}
+.card-inner.revealed {
+  transform: rotateY(180deg);
+}
+.card .front {
+  color: black;
+  z-index: 3;
+  position: relative;
+  background-color: #EFF2EF;
+}
+.card .front .instructions {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  translate: -50% 0;
+  font-weight: 300;
+  font-size: 11px;
+}
+.card .front .styles .lvl span {
+  background: linear-gradient(212.63deg, #0D1317 10.58%, rgba(13, 19, 23, 0) 85.39%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  mix-blend-mode: overlay;
+}
+.card .front .styles .lvl span:nth-child(2) {
+  filter: blur(2px);
+  opacity: 0.5;
+}
+.card .front .styles .lvl span:nth-child(3) {
+  filter: blur(5px);
+  opacity: 0.5;
+}
+.card .back {
+  position: absolute;
+  background-color: #0D1317;
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 0;
+}
+.card .back .styles .lvl span {
+  background: linear-gradient(212.63deg, #EFF2EF 10.58%, rgba(239, 242, 239, 0) 85.39%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+  mix-blend-mode: overlay;
+}
+
+.button {
+  cursor: pointer;
+  position: relative;
+  border-radius: 4px;
+  text-decoration: none;
+  z-index: 2;
+  width: max-content;
+  text-align: center;
+  align-self: center;
+  font-weight: 700;
+  transition: box-shadow 0.8s ease;
+  padding: 4px 16px;
+  color: #0D1317;
+  user-select: none;
+  font-size: 14px;
+}
+.button::after {
+  pointer-events: none;
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  left: 0;
+  top: 0;
+  scale: 1.1;
+  filter: blur(20px);
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.button:hover::after {
+  opacity: 0.4;
+}
+.button--alt-1 {
+  background-color: #726DA8;
+}
+.button--alt-2 {
+  background-color: #E49273;
+}
+.button--success {
+  background-color: #418056;
+  color: #EFF2EF;
+}
+.button--failure {
+  background-color: #934141;
+  color: #EFF2EF;
+}
+.button.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0;
+  position: relative;
+}
+.card-deck .card {
+  margin-top: -50.5%;
+  transition: all 1.2s ease;
+  opacity: 0;
+  scale: 0.85;
+  display: block;
+}
+.card-deck .card:nth-last-child(-n+3) {
+  margin-top: -50%;
+  opacity: 1;
+}
+.card-deck .card:not(:nth-last-child(-n+4)) {
+  display: none;
+}
+.card-deck .card:nth-last-child(1) {
+  scale: 1;
+}
+.card-deck .card:nth-last-child(2) {
+  scale: 0.95;
+}
+.card-deck .card:nth-last-child(3) {
+  scale: 0.9;
+}
+.card-deck .card.hide {
+  transform: translateY(50px);
+  opacity: 0;
+  pointer-events: none;
+  margin-top: -60%;
+}
+
+main#study {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+main#study .buttons {
+  display: flex;
+  column-gap: 16px;
+  position: absolute;
+  top: 65%;
+  translate: -50% -50%;
+}
+main#study .card-deck {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 0;
+}
+main#study .studies-finished {
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+main#study .studies-finished > span {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 16px;
+  text-align: center;
+  max-width: 90vw;
+}
+main#study .level-annoucement-transition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+main#study .level-annoucement-transition span {
+  position: relative;
+  font-size: 16px;
+}
+
+main#home {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  row-gap: 32px;
+}
+main#home .buttons {
+  display: flex;
+  column-gap: 16px;
+}
+@media screen and (max-width: 414px) {
+  main#home .buttons {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+  main#home .buttons .button {
+    width: 100%;
+  }
+}
+main#home #logo {
+  width: 56px;
+  stroke: #fff;
+  stroke-width: 8px;
+  stroke-opacity: 50%;
+}
+
+main#add-cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+main#add-cards .actions {
+  display: flex;
+  column-gap: 16px;
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  translate: -50% -50%;
+  align-items: center;
+  justify-content: center;
+}
+main#add-cards .card-deck {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% 0;
+  width: 90vw;
+  aspect-ratio: 1.89;
+}
+main#add-cards .cards-added, main#add-cards .studies-finished {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 16px;
+}
+main#add-cards .cards-added h2, main#add-cards .studies-finished h2 {
+  text-transform: uppercase;
+  font-size: 16px;
+  text-align: center;
+  max-width: 90vw;
+}
+main#add-cards .card .instructions {
+  display: none;
+}
+
+main#settings {
+  display: grid;
+  flex-direction: column;
+  row-gap: 64px;
+  place-content: center;
+  justify-items: center;
+}
+main#settings .question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  font-weight: 800;
+}
+@media screen and (max-width: 414px) {
+  main#settings .question {
+    max-width: 85vw;
+  }
+}
+main#settings .question__text {
+  text-transform: uppercase;
+  text-align: center;
+  width: 80vw;
+}
+@media screen and (max-width: 414px) {
+  main#settings .question__text {
+    font-size: 12px;
+  }
+}
+main#settings .question__input {
+  width: 100%;
+  position: relative;
+}
+main#settings .question__input input {
+  all: unset;
+  text-align: center;
+  color: #E49273;
+  width: 100%;
+  background: transparent;
+  position: relative;
+  -moz-appearance: textfield;
+}
+@media screen and (max-width: 414px) {
+  main#settings .question__input input {
+    font-size: 14px;
+  }
+}
+main#settings .question__input input::-webkit-outer-spin-button, main#settings .question__input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main#settings .question__input input::placeholder, main#settings .question__input input::after, main#settings .question__input input::before {
+  color: inherit;
+}
+@media screen and (max-width: 414px) {
+  main#settings .question__input input::placeholder, main#settings .question__input input::after, main#settings .question__input input::before {
+    font-size: 12px;
+  }
+}
+main#settings .question__input input::placeholder {
+  opacity: 0.4;
+  text-transform: uppercase;
+}
+main#settings .question__input::after {
+  filter: blur(15px);
+  display: block;
+  background-color: #E49273;
+  content: "";
+  width: 24px;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+main#settings .question__input::before {
+  content: attr(error-message);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: #d5373a;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (max-width: 414px) {
+  main#settings .question__input::before {
+    font-size: 12px;
+  }
+}
+main#settings .question__input.input-filled::after {
+  opacity: 0.4;
+}
+main#settings .question__input.input--invalid::after {
+  background-color: #c51c1f;
+  opacity: 0.6;
+}
+main#settings .question__input.input--invalid input {
+  color: #d5373a;
+}
+main#settings .question__input.input--invalid::before {
+  opacity: 1;
+}
+
+/*# sourceMappingURL=main.css.map */

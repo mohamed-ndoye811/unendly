@@ -10,10 +10,15 @@
     transition: all 1.2s ease;
     opacity: 0;
     scale: 0.85;
+    display: block;
 
     &:nth-last-child(-n + 3) {
       margin-top: -50%;
       opacity: 1;
+    }
+
+    &:not(:nth-last-child(-n + 4)) {
+      display: none;
     }
 
     &:nth-last-child(1) {

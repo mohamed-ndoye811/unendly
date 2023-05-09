@@ -30,9 +30,9 @@ function handleCardClick(element: Card) {
 
 function handleResultButtonClick(card: Card, remembered: Boolean) {
     let cardToChange = allCards.value.find(card => card.id == cards.value.at(-1)?.id) as Card;
-    // cardToChange.level = remembered ? cardToChange?.level + 1 : 1;
-    // cardToChange.studied = true;
-    // cardToChange.dateOfStudy = moment().add(2 ** (cardToChange.level - 1), 'days').format('DD/MM/YYYY')
+    cardToChange.level = remembered ? cardToChange?.level + 1 : 1;
+    cardToChange.studied = true;
+    cardToChange.dateOfStudy = moment().add(2 ** (cardToChange.level - 1), 'days').format('DD/MM/YYYY')
 
     cardDisappearingAnimation(() => {
         cards.value.pop();
@@ -47,15 +47,6 @@ function handleResultButtonClick(card: Card, remembered: Boolean) {
             studyStore.resetStudyCardsState();
         }
     })
-
-
-    // if (cards.value.filter((card) => card.level == levelsOfTheDay[levelToStudyIndex.value]).length == 0 && levelToStudyIndex.value < levelsOfTheDay.length) {
-    //     transitionAnimation();
-    //     const hasCards = handleLevels(levelsOfTheDay[++levelToStudyIndex.value]);
-    //     if (!hasCards) {
-    //         studyStore.resetStudyCardsState()
-    //     }
-    // }
 }
 
 function handleLevels(level: number = levelsOfTheDay[levelToStudyIndex.value]): boolean {
@@ -96,13 +87,6 @@ function transitionAnimation() {
         targets: ".card-deck",
         opacity: [0, 1],
     })
-
-    // animation.add({
-    //     targets: ".card-deck .card",
-    //     top: [-56, 0],
-    //     easing: "easeOutCubic",
-    //     delay: anime.stagger(200, {from: 'last'})
-    // }, "-=1400")
 }
 
 function cardDisappearingAnimation(callback: Function) {
@@ -153,8 +137,8 @@ onMounted(() => {
             <div class="buttons"
                  v-if="cards?.at(-1)?.revealed"
             >
-                <Button text="Je m'en souvenais" success @click="handleResultButtonClick(cards.at(-1) as Card, true)"/>
-                <Button text="J'avais oublié" :success="false"
+                <Button text="I remember" success @click="handleResultButtonClick(cards.at(-1) as Card, true)"/>
+                <Button text="I forgot..." :success="false"
                         @click="handleResultButtonClick(cards[cards.length], false)"/>
             </div>
         </div>
