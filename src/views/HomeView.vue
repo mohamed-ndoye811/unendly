@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         askPermission() {
-            if (this.notificationsSupported) {
+            if (this.notificationsSupported) { 
                 Notification.requestPermission(result => {
                     console.log('result from permission question', result);
                     if (result !== 'granted') {
