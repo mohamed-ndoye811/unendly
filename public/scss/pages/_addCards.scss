@@ -21,8 +21,11 @@ main#add-cards {
     top: 50%;
     left: 50%;
     translate: -50% 0;
-    width: 90vw;
-    aspect-ratio: 1.89;
+
+    @media screen and (max-width: 414px) {
+      width: 90vw;
+      aspect-ratio: 1.89;
+    }
   }
 
   .cards-added, .studies-finished {

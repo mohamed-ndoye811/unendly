@@ -802,8 +802,12 @@ main#add-cards .card-deck {
   top: 50%;
   left: 50%;
   translate: -50% 0;
-  width: 90vw;
-  aspect-ratio: 1.89;
+}
+@media screen and (max-width: 414px) {
+  main#add-cards .card-deck {
+    width: 90vw;
+    aspect-ratio: 1.89;
+  }
 }
 main#add-cards .cards-added, main#add-cards .studies-finished {
   display: flex;
