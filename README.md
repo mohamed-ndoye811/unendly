@@ -123,8 +123,9 @@ pu tirer profit plus tôt du service malheureusement
 Bien que ces améliorations ne pourrons pas être notées, je compte peaufiner le projet pour avoir quelque chose de bien
 plus qualitatif.
 
-- Malgré réussi à implémenter la possibilité de faire fonctionner l'application en hors ligne à l'aide du module
+- [ ] Malgré réussi à implémenter la possibilité de faire fonctionner l'application en hors ligne à l'aide du module
   vitepwa, je n'ai pas trouvé de moyen d'envoyer la notification de rappel de révision de façon récurrente et
   fonctionnelle même hors ligne
-- Le projet necessite quelque retouche en termes d'animation et d'homogènéité
-- L'ajout des audio, photos et vidéos
+- [ ] Le projet necessite quelque retouche en termes d'animation et d'homogènéité
+- [ ] L'ajout des audio, photos et vidéos
+- [ ] Réfactoring du code pour l'optimiser au mieux
